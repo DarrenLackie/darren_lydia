@@ -7,7 +7,7 @@
         <ul>
             {% for event in events %}
             <li>
-            {{ event.date }} | {{ event.name }} | {{ event.number_of_guests }} guests | {{ event.room }} | {{ event.description }} | {{ event.recurring }}
+            {{ event.date.strftime("%d %b %Y") }} | {{ event.name }} | {{ event.number_of_guests }} guests | {{ event.room }} | {{ event.description }} | {{ event.recurring }}
             {% if event.recurring %}
             &#8635
             {% endif %}
