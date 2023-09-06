@@ -1,0 +1,35 @@
+<html>
+    <head>
+        <title> {{ title }} </title>
+    </head>
+    <body>
+        <h1> {{ title }} </h1>
+        <ul>
+            {% for event in events %}
+            <li>
+            {{ event.date }} | {{ event.name }} | {{ event.number_of_guests }} guests | {{ event.room }} | {{ event.description }} | {{ event.recurring }}
+            {% if event.recurring %}
+            &#8635
+            {% endif %}
+            </li>
+            {% endfor %}
+        </ul>
+        <form action="/events" method="post">
+            <label for="name">Event Name</label>
+            <input type="text" name="name" id="name"/>
+            <label for="description">Description</label>
+            <textarea name="description" id="description" cols="40"></textarea>
+            <br>
+            <label for="date">Date</label>
+            <input type="date" name="date" id="date"/>
+            <label for="number_of_guests">Number of guests</label>
+            <input type="text" name="number_of_guests" id="number_of_guests"/>
+            <label for="room">Room</label>
+            <input type="text" name="room" id="room"/>
+            <label for="recurring">Recurring:</label>
+            <input type="radio" name="recurring" id="Yes" value="Yes">Yes
+            <input type="radio" name="recurring" id="No" value="No">No
+            <input type="Submit" value="Add Event">
+        </form>
+    </body>
+</html>
